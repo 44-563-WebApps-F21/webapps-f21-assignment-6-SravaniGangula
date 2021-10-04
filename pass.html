@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Assignment6</title>
+</head>
+
+<body>
+    <h1>Pass phrase by Gangula Sravani Reddy </h1>
+
+    <form>
+        <label for="secretphrase">Enter the secret phrase </label>
+        <input type="password" id="secretphrase" name="secretphrase" min=10 max=50 step=2 />
+        <br>
+        <br>
+
+        <label for="checkphrase">Enter a phrase </label>
+        <input type="text" id="checkphrase" name="checkphrase" autofocus>
+        <br>
+        <br>
+
+        <input type="button" onclick="processPhrase()" value="Check the phrase">
+    </form>
+
+    <p id="result">This is phrased text</p>
+    <div class="container">
+        <img src="goat.jpg" id="animals" alt="goat" style="height: 200px;" width="200px;" onclick="newImage(this)" />
+    </div>
+    <script>
+        var correct = 0
+        var wrong = 0
+
+        function processPhrase() {
+            console.log("Getting phrases")
+            formsecret = document.getElementById("secretphrase").value
+            formcheck = document.getElementById("checkphrase").value
+            if (formsecret == formcheck) {
+                correct = correct + 1;
+                alert("Access allowed");
+            } else {
+                wrong = wrong + 1;
+                alert("Access deneid");
+            }
+            out = document.getElementById("result")
+            out.innerHTML = "correct guess count: " + correct + "<br>" + "wrong guess count: " + wrong;
+        }
+        let usingImage = 1
+        function newImage(img) {
+            debugger;
+            switch (usingImage) {
+                case 1:
+                    document.getElementById("animals").src = "lion.jpg"
+                    usingImage++;
+                    break;
+                case 2:
+                    document.getElementById("animals").src = "giraffe.jpg"
+                    usingImage++;
+                    break;
+                default:
+                    usingImage = 0;
+                    document.getElementById("animals").src = "goat.jpg"
+                    break;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
