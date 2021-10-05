@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    Assignment6Compute
+  </title>
+</head>
+
+<body>
+  <h3>Gangula Sravani Reddy computes</h3>
+  <h2>Getting input</h2>
+
+  <form>
+    <label for="form1_base">Enter a base</label>
+    <input type="number" id="form1_base" name="form1_base" min=10 max=50>
+    <br>
+
+    <br>
+
+    <label for="form1_exp">Enter an exponent</label>
+    <input type="number" id="form1_exp" name="form1_exp" autofocus>
+
+    <br>
+    <br>
+
+    <input type="button" onclick="powers()" value="Compute">
+  </form>
+
+
+  <p id="result">This text will be replaced </p>
+
+  <script>
+    function powers() {
+      console.log("Getting form values")
+      base = document.getElementById("form1_base").value
+      exponent = document.getElementById("form1_exp").value
+
+
+      var res = " ";
+      for (let i = 0; i < exponent; i++) {
+        res = res + Math.pow(base, i) + " ";
+
+      }
+      console.log(res);
+      out = document.getElementById("result")
+
+      out.innerHTML = "Powers of base are:" + res;
+
+    }
+  </script>
+
+</body>
+
+</html>
