@@ -8,18 +8,18 @@
 </head>
 
 <body>
-  <h3>Gangula Sravani Reddy computes</h3>
-  <h2>Getting input</h2>
+  <h2>Gangula Sravani Reddy computes</h2>
+ 
 
   <form>
     <label for="form1_base">Enter a base</label>
-    <input type="number" id="form1_base" name="form1_base" min=10 max=50>
+    <input type="number" id="form1_base" name="form1_base" min=10 max=50 value="10">
     <br>
 
     <br>
 
     <label for="form1_exp">Enter an exponent</label>
-    <input type="number" id="form1_exp" name="form1_exp" autofocus>
+    <input type="number" id="form1_exp" name="form1_exp" autofocus value="2">
 
     <br>
     <br>
@@ -30,24 +30,53 @@
 
   <p id="result">This text will be replaced </p>
 
+  <form>
+    <input type="radio" id="plus" onclick="processRadio()" name="operation" value="plus">
+    <label for="plus">+</label></br>
+
+    <input type="radio" id="minus" name="operation" onclick="processRadio()" value="minus">
+    <label for="minus">-</label></br>
+
+    <input type="radio" id="times" name="operation" onclick="processRadio()" value="times">
+    <label for="times">*</label></br>
+
+    <input type="radio" id="divide" name="operation" onclick="processRadio()" value="divide">
+    <label for="divide">/</label></br>
+
+</form>
+
+
+<p id="result1">This results get changed </p>
+
   <script>
     function powers() {
       console.log("Getting form values")
       base = document.getElementById("form1_base").value
       exponent = document.getElementById("form1_exp").value
-
-
       var res = " ";
-      for (let i = 0; i < exponent; i++) {
-        res = res + Math.pow(base, i) + " ";
-
-      }
+      for (let i = 1; i <= exponent; i++) {
+        res = res + Math.pow(base, i) + " ";    }
       console.log(res);
       out = document.getElementById("result")
-
       out.innerHTML = "Powers of base are:" + res;
-
+      res = " ";
     }
+    function processRadio() {
+            let first = document.getElementById("form1_base").value;
+            let second = document.getElementById("form1_exp").value;
+            plus = document.getElementById("plus").checked
+            minus = document.getElementById("minus").checked
+            times = document.getElementById("times").checked
+            divide = document.getElementById("divide").checked          
+            if (plus) {
+                document.getElementById("result1").innerHTML = (Number)(first) + (Number)(second)          }
+            if (minus) {
+              document.getElementById("result1").innerHTML = first - second          }
+            if (times) {
+                document.getElementById("result1").innerHTML = first * second           }
+            if (divide) {
+                document.getElementById("result1").innerHTML = first / second        }
+        }
   </script>
 
 </body>

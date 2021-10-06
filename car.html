@@ -1,71 +1,90 @@
 <!DOCTYPE html>
 <html>
- <head>
-     <title>
-         Assignment6Car
-     </title>
- </head>
+
+<head>
+    <title>
+        Assignment6Car
+    </title>
+</head>
+
 <body>
 
-<h2>Gangula Sravani Reddy orders a car</h2>
+    <h2>Gangula Sravani Reddy orders a car</h2>
 
-<form class="form">
-    <div class="form-group">
-        <input type="checkbox" id="check_one"
-            name="check_one" value="electric">
-        <label for="check_one">electric </label>
-    </div>
-    <div class="form-group">
-        <input type="checkbox" id="check_two"
-            name="check_two" value="ac">
-        <label for="check_two">ac </label>
-    </div>
-    <div class="form-group">
-        <input type="checkbox" id="check_three"
-            name="check_three" value="gps">
-        <label for="check_three">gps </label>
-    </div>
-    <br>
-   
-    <div class="form-group">
-        <input type="button" class="btn btn-primary
-            btn-md" onclick="orderCar()"
-            value="Order a car">
-    </div>
-</form>
+    <form class="form">
+        <div class="form-group">
+            <input type="checkbox" id="check_one" name="check_one" value="electric">
+            <label for="check_one">electric </label>
+        </div>
+        <div class="form-group">
+            <input type="checkbox" id="check_two" name="check_two" value="ac">
+            <label for="check_two">ac </label>
+        </div>
+        <div class="form-group">
+            <input type="checkbox" id="check_three" name="check_three" value="gps">
+            <label for="check_three">gps </label>
+        </div>
+        <br>
 
-<p id="result">This text will be replaced </p>
+        <div class="form-group">
+            <input type="button" class="btn btn-primary
+            btn-md" onclick="orderCar()" value="Order a car">
+        </div>
+    </form>
 
-<script> 
-debugger
-var my_car={}
-function orderCar()
-{
-    my_car = {}
+    <p id="result">This text will be replaced </p>
 
-if (document.getElementById("check_one").checked == true) {
-    my_car['electric'] = 'true';
-} else {
-    my_car['electric'] = 'false';
-}
+    <form>
 
-if (document.getElementById("check_two").checked == true) {
-    my_car['ac'] = 'true';
-} else {
-    my_car['ac'] = 'false';
-}
+        <label for="property">Enter a property </label>
+        <input type="text" id="property" name="property" value="color">
+        <br>
+        <br>
 
-if (document.getElementById("check_three").checked == true) {
-    my_car['gps'] = 'true';
-} else {
-    my_car['gps'] = 'false';
-}
-document.getElementById("result").innerHTML = JSON.stringify(my_car);
+        <label for="value">Enter a value </label>
+        <input type="text" id="value" name="value">
+
+        <br>
+        <br>
+
+        <input type="button" onclick="updateCar()" value="Update the car">
+    </form>
+
+    
+
+    <script>
+        var my_car = {}
+        function orderCar() {
+            my_car = {}
+            if (document.getElementById("check_one").checked == true) {
+                my_car['electric'] = 'true';
+            } else {
+                my_car['electric'] = 'false';
+            }
+            if (document.getElementById("check_two").checked == true) {
+                my_car['ac'] = 'true';
+            } else {
+                my_car['ac'] = 'false';
+            }
+            if (document.getElementById("check_three").checked == true) {
+                my_car['gps'] = 'true';
+            } else {
+                my_car['gps'] = 'false';
+            }
+            document.getElementById("result").innerHTML = JSON.stringify(my_car);
             console.log(my_car);
-
-}
-
-</script>
+        }
+        function updateCar() {
+           
+            out = document.getElementById("result")
+            property = document.getElementById("property").value
+            value = document.getElementById("value").value
+            my_car["property"] = property; 
+            my_car["value"]=value;
+            out.innerHTML = JSON.stringify(my_car);
+        }
+    </script>
 
 </body>
-</html> 
+
+</html>
